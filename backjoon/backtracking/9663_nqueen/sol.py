@@ -6,33 +6,38 @@ arr = [[0]*N for _ in range(N)]
 cnt = 0
 
 def promising(i, j):
-    # 내 위치에서 위, 좌상, 우상쭉에 모두 퀸이 없으면 True
+
+    # 위, 좌상, 우상에 없으면 유망
     di = [-1, -1, -1]
     dj = [0, -1, 1]
 
-    # 현재 위치를 표시
-    r, c = i, j
-    # 방향 의미
-    k = 0
-    while 0 <= r and 0 <= c < N:
-        while not arr[r][c]:
-            r += di[k]
-            c += dj[k]
+    # 3방향에 대해 조사
+    for k in range(3):
+        ni = i + di[k]
+        nj = j + dj[k]
+
+        if 0 <= ni < N and 0 <= nj < N:
+            if arr[ni][nj]:
+                return 0
+    # 세 방향 모두에서 없어야함!!!
+    return 1
 
 
+# 0행부터 내려감, 끝나는 기준=N
+def DFS(i, N):
 
-
-
-def backtrack(i, N):
     global cnt
 
-    if i == N-1:
+    if i == N:
         cnt += 1
         return
 
-
     for j in range(N):
+        # 해당 위치가 유망하다면 두고 다음 행 조사
         if promising(i, j):
             arr[i][j] = 1
-            backtrack(i+1, N)
+            DFS(i+1, N)
             arr[i][j] = 0
+
+DFS(0, N)
+print(cnt)
