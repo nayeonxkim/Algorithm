@@ -20,10 +20,6 @@ def backtrack(i, M, house, chicken, lst):
 
     global minV
 
-    # 종료조건
-    if i == len(chicken):
-        return
-
     # 백트래킹
     if len(lst) == M:
         V = 0
