@@ -37,6 +37,8 @@ def BFS(N, K):
             if 0 <= X_n <= 100000 and visited[X_n] == -1:
                 if k != 0:
                     visited[X_n] = visited[X] + 1
+                else:
+                    visited[X_n] = visited[X]
                 queue.append(X_n)
 
 ans = BFS(N, K)
