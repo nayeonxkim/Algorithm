@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('../15650_NM2/input.txt')
+sys.stdin = open('input.txt')
 
 def DFS(i, N, M, lst):
 
