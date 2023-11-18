@@ -1,3 +1,8 @@
+'''
+( -> 스택에 추가
+) -> 짝이 맞는지 확인
+'''
+
 import sys
 sys.stdin = open('input.txt')
 
