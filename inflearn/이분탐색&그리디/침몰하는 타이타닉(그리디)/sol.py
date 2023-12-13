@@ -1,23 +1,22 @@
-from itertools import permutations
+from collections import deque
 import sys
 sys.stdin = open('input.txt')
 
 N, M = map(int, input().split())
 arr = list(map(int, input().split()))
 
+# 1. 리스트 오름차순 정렬 및 데큐 변환
 arr.sort()
-print(arr)
+arr = deque(arr)
 
-tot = 0
-ppl = 0
-i = 0
+# 2. 마지막 + 첫번째의 합을 기준으로 보트 수 +
 cnt = 0
-while i < N:
-    tot += arr[i]
-    ppl += 1
-    if tot > M or ppl > 2:
-        cnt += 1
-        tot = 0
+while arr:
+    if arr[0] + arr[-1] > M:
+        arr.pop()
+
     else:
-        i += 1
+        arr.popleft()
+        arr.pop()
+    cnt += 1
 print(cnt)
