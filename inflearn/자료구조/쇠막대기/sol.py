@@ -21,7 +21,7 @@ for char in inp:
         else:
             stack.pop()
             cnt += 1
-            
+
         laser = False
 
 print(cnt)
