@@ -5,7 +5,7 @@ from itertools import permutations
 N = int(input())
 A = list(map(int, input().split()))
 
-def backtrack(lst):
+def bruteforce(lst):
     i = 0
     res = 0
     while i < N-1:
@@ -16,6 +16,6 @@ def backtrack(lst):
 P = list(permutations(A, N))
 ans = 0
 for lst in P:
-    res = backtrack(lst)
+    res = bruteforce(lst)
     ans = max(ans, res)
 print(ans)
