@@ -4,12 +4,11 @@ sys.stdin = open('input.txt')
 # 1. 입력받기
 n, h = map(int, input().split(" "))
 
-
 # 2. 각 장애물의 시작과 끝만 기록
 lst = [0] * h
 
 for i in range(n):
-    stick = int(sys.stdin.readline())
+    stick = int(input())
 
     # 짝수면 0에서 시작
     if i % 2 == 0:
