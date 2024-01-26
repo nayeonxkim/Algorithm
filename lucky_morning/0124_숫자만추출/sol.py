@@ -19,3 +19,4 @@ for n in range(1, num+1):
 # 출력하기
 print(num)
 print(cnt)
+
