@@ -2,6 +2,8 @@ import sys
 sys.stdin = open('input.txt')
 from collections import deque
 
+
+
 S, E = map(int, input().split())
 
 # 배열 & 큐 생성
@@ -23,5 +25,10 @@ while queue:
             visitied[next] = visitied[now] + 1
             queue.append(next)
 
+        # 이거 넣어도 될듯?
+        if visitied[E]:
+            break
+
 # 도착점에 이미 방문하면 더이상 표시 X -> 가장 작은 수가 표시 됨
+# 시작점이 1로 표시되므로 1을 빼줘야함
 print(visitied[E] - 1)
