@@ -4,6 +4,7 @@ sys.stdin = open('input.txt')
 N = int(input())
 arr = [list(map(int, input().split())) for _ in range(N)]
 
+
 val = 0
 k = -1
 for i in range(N):
