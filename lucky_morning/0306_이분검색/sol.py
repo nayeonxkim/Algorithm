@@ -12,7 +12,7 @@ s = 0
 e = N-1
 
 while s <= e:
-    mid = (s+e) // 2
+    mid= (s+e) // 2
 
     if lst[mid] == M:
         print(mid+1)
