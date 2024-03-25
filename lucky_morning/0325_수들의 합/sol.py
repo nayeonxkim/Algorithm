@@ -1,40 +1,24 @@
 import sys
 sys.stdin = open('input.txt')
 
+
 N, M = map(int, input().split())
 lst = list(map(int, input().split()))
 
+s = 0
+e = 1
 cnt = 0
 
-for i in range(N):
-    tot = lst[i]
-    for j in range(i+1, N):
-        tot += lst[j]
-        if tot == M:
-            cnt += 1
-            break
+while s <= N and e <= N:
+    tot = sum(lst[s:e])
+    if tot == M:
+        cnt += 1
+        e += 1
+
+    elif tot < M:
+        e += 1
+
+    else:
+        s += 1
 
 print(cnt)
-
-
-
-# cnt = 0
-# def DFS(i, lst, tot):
-#     global cnt
-#
-#     if tot == M:
-#         cnt += 1
-#         return
-#
-#     if i >= N:
-#         return
-#
-#     if tot > M:
-#         return
-#
-#     DFS(i+1, lst, tot+lst[i])
-#
-# for i in range(N):
-#     DFS(i, lst, 0)
-
-# print(cnt)
